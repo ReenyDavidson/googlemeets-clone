@@ -20,8 +20,23 @@ export default function DrawerNavigation() {
             } else if (route.name === "Settings") {
               iconName = focused ? "settings" : "settings";
             }
+            if (route.name === "Home") {
+              size = focused ? 18 : 16;
+            } else if (route.name === "Settings") {
+              size = focused ? 16 : 15;
+            }
+
             return <Ionicons name={iconName} size={size} color={color} />;
           },
+          drawerLabelStyle: {
+            fontFamily: "Poppins-Regular",
+            fontSize: 16,
+          },
+          drawerType: "back",
+          drawerContentContainerStyle: {
+            top: 40,
+          },
+          drawerPosition: "left",
         })}
       >
         <Drawer.Screen
