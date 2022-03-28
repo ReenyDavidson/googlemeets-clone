@@ -1,43 +1,8 @@
 import React, { useState } from "react";
 import { View, Text } from "react-native";
 import { HStack, Button, Box, Center, FormControl, VStack, Image, Input, Modal } from "native-base";
-import LottieView from "lottie-react-native";
-import HmsManager, {
-  HMSTrackSettings,
-  HMSAudioTrackSettings,
-  HMSVideoTrackSettings,
-  HMSVideoCodec,
-  HMSCameraFacing,
-  HMSVideoResolution,
-  HMSConfig,
-  HMSUpdateListenerActions,
-} from "@100mslive/react-native-hms";
-
-const getTrackSettings = () => {
-  let audioSettings = new HMSAudioTrackSettings({
-    maxBitrate: 32,
-    trackDescription: "Simple Audio Track",
-  });
-  let videoSettings = new HMSVideoTrackSettings({
-    codec: HMSVideoCodec.VP8,
-    maxBitrate: 512,
-    maxFrameRate: 25,
-    cameraFacing: HMSCameraFacing.FRONT,
-    trackDescription: "Simple Video Track",
-    resolution: new HMSVideoResolution({ height: 180, width: 320 }),
-  });
-
-  return new HMSTrackSettings({ video: videoSettings, audio: audioSettings });
-};
-
-const setupBuild = async () => {
-  const trackSettings = getTrackSettings();
-  const build = await HmsManager.build({ trackSettings });
-  setInstance(build);
-  updateHms({ hmsInstance: build });
-
-  return build;
-};
+import { HMSConfig, HMSUpdateListenerActions } from "@100mslive/react-native-hms";
+import { setupBuild } from "../100ms/100ms";
 
 export default function JoinScreen() {
   const [showModal, setShowModal] = useState(false);
