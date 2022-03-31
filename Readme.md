@@ -2,7 +2,7 @@
 
 The official NativeBase template for [Expo](https://docs.expo.io/)
 
-# Usage
+## Usage
 
 ```sh
 expo init my-app --template @native-base/expo-template
